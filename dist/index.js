@@ -4,14 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const index_1 = __importDefault(require("./routes/index"));
 const app = (0, express_1.default)();
 const port = 8080;
+const index_1 = __importDefault(require("./routes/index"));
 // middlewares
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 // Routes
-app.use(index_1.default);
+(0, index_1.default)(app);
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
